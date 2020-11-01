@@ -1,0 +1,42 @@
+[
+    {
+      "role_type": "Premium_Client",
+      "operations": "Access"
+    },
+    {
+      "role_type": "Regular_Client",
+      "operations": "View"
+    },
+    {
+      "role_type": "Regular_Client",
+      "operations": "View Account Balance, View Investment Portfolio, View Contact Details"
+    },
+    {
+      "role_type": "Premium_Client",
+      "operations": "View Account Balance, Modify Investment Portfolio, View Contact Details"
+    },
+    {
+      "role_type": "Financial_Advisor",
+      "operations": "Modify Client's Investment Portfolio, View Private Consumer instruments"
+    },
+    {
+      "role_type": "Financial_Planner",
+      "operations": "Modify Client's Investment Portfolio,View Private Consumer instruments,View Money Market instruments"
+    },
+    {
+      "role_type": "Investment_analyst",
+      "operations": "Modify Client's Investment Portfolio,View Private Consumer instruments,View Money Market instruments,View Derivatives trading,View interests instruments"
+    },
+    {
+      "role_type": "Compliance_Officer",
+      "operations": "Validation of Client's investment portfolio"
+    },
+    {
+      "role_type": "Teller",
+      "operations": "Can access system only during 9am to 5pm"
+    },
+    {
+      "role_type": "Technical_Support",
+      "operations": "View Client Information,Request Client's account access"
+    }
+]
