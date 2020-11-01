@@ -9,9 +9,6 @@ from contextlib import redirect_stdout
 def take_user_input():
     uname_input = input("Enter username: ")
     pword_input = input("Enter password: ")
-    #uname_input = "Tanvir"
-    #pword_input = "A123456a!"
-
 
     # Taking user name and password
     flag = check_user_password(uname_input, pword_input)
@@ -22,7 +19,6 @@ def take_user_input():
         flag = check_user_password(uname_input, pword_input)
 
     # Taking Position Input
-    position_type = "Teller"
     position_type = input("Enter Position: ")
     flag_position = verify_position(position_type)
     while flag_position == False:
@@ -34,6 +30,7 @@ def take_user_input():
         print("Enrolment is successful")
 
     return 0
+
 
 def check_user_password(uname_input, pword_input):
     flag = - 1
