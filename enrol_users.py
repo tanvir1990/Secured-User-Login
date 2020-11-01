@@ -69,8 +69,6 @@ def check_user_password(uname_input, pword_input):
             return False
             break
 
-        #elif re.search("\s", pword_input):
-        #  break
         else:
             flag = 0
             print("Password Accepted")
