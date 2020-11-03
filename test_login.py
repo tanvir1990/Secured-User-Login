@@ -1,5 +1,5 @@
 import unittest
-from Code.enrol_users import *
+from Code.enrol import *
 from Code.login import *
 import io
 from contextlib import redirect_stdout
