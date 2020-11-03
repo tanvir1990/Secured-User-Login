@@ -1,42 +1,87 @@
 [
     {
-      "role_type": "Premium_Client",
-      "operations": "Access"
-    },
-    {
+      "role_Id": "01",
       "role_type": "Regular_Client",
-      "operations": "View"
+      "operations": {
+        "1": "View-Account Balance",
+        "2": "View-Investment Portfolio",
+        "3": "View-Contact Details of Financial Advisor"
+      }
     },
     {
-      "role_type": "Regular_Client",
-      "operations": "View Account Balance, View Investment Portfolio, View Contact Details"
-    },
-    {
+      "role_Id": "02",
       "role_type": "Premium_Client",
-      "operations": "View Account Balance, Modify Investment Portfolio, View Contact Details"
+      "operations":{
+        "1": "View-Account Balance",
+        "2": "Modify-Investment Portfolio",
+        "3": "View-Contact Details of Financial Planner and Investment Analyst"
+      }
     },
     {
-      "role_type": "Financial_Advisor",
-      "operations": "Modify Client's Investment Portfolio, View Private Consumer instruments"
+     "role_Id": "03",
+     "role_type": "Employee_Regular",
+     "operations":{
+       "1": "View-Client's Account Balance",
+       "2": "View-Client's Investment Portfolio",
+     }
     },
     {
-      "role_type": "Financial_Planner",
-      "operations": "Modify Client's Investment Portfolio,View Private Consumer instruments,View Money Market instruments"
+      "role_Id": "04",
+      "role_type": "Employee_Financial_Advisor",
+      "operations":{
+        "1": "View-Client's Account Balance",
+        "2": "Modify Client's Investment Portfolio",
+        "3": "View Private Consumer instruments"
+      }
     },
     {
-      "role_type": "Investment_analyst",
-      "operations": "Modify Client's Investment Portfolio,View Private Consumer instruments,View Money Market instruments,View Derivatives trading,View interests instruments"
+      "role_Id": "05",
+      "role_type": "Employee_Financial_Planner",
+      "operations":{
+        "1": "View-Client's Account Balance",
+        "2": "Modify Client's Investment Portfolio",
+        "3": "View Private Consumer instruments",
+        "4": "View Money Market instruments"
+      }
     },
     {
-      "role_type": "Compliance_Officer",
-      "operations": "Validation of Client's investment portfolio"
+      "role_Id": "06",
+      "role_type": "Employee_Investment_analyst",
+      "operations":{
+        "1": "View-Client's Account Balance",
+        "2": "Modify Client's Investment Portfolio",
+        "3": "View Private Consumer instruments",
+        "4": "View Money Market instruments",
+        "5": "View Derivatives trading",
+        "6": "View interests instruments"
+      }
     },
     {
-      "role_type": "Teller",
-      "operations": "Can access system only during 9am to 5pm"
+      "role_Id": "07",
+      "role_type": "Employee_Compliance_Officer",
+      "operations":{
+        "1": "View-Client's Account Balance",
+        "2": "View-Client's Investment Portfolio",
+        "3": "Validate Client's investment portfolio"
+      }
     },
     {
-      "role_type": "Technical_Support",
-      "operations": "View Client Information,Request Client's account access"
+      "role_Id": "08",
+      "role_type": "Employee_Teller",
+      "operations":{
+        "1": "View-Client's Account Balance",
+        "2": "View-Client's Investment Portfolio",
+        "3": "ONLY can access the system during 9am to 5pm"
+      }
+    },
+    {
+      "role_Id": "09",
+      "role_type": "Employee_Technical_Support",
+      "operations":{
+        "1": "View-Client's Account Balance",
+        "2": "View-Client's Investment Portfolio",
+        "3": "View-Client Information",
+        "4": "Request Client's account access"
+      }
     }
 ]
