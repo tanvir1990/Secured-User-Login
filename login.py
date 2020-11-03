@@ -4,19 +4,20 @@ import hashlib
 
 #@TODO that Env thing
 #@TODO randomize salt
-#@TODO User Name Chek
-#@TODO Json for role types and Access info
 
 def login_main():
 
     #user_name = input("Enter username: ")
-    user_name = "Ron"
+    user_name = "Tanvir"
     #password_input = input("Enter password: ")
-    password_input = "abc123ABC!"
-    login_verification(user_name.strip(), password_input.strip())
+    password_input = "ABCabc123!"
+    # Retrieves the role of the user from Database, role_types.txt
+    role, env = read_record(user_name)
+    login_verification(user_name.strip(), password_input.strip(), role, env)
     return 0
 
-def login_verification(user_name, password_input):
+
+def login_verification(user_name, password_input, role, env):
 
     # Retrieve the hashed password and the salt value
     retrieved_password, retrieved_salt = read_password(user_name.strip())
@@ -26,12 +27,10 @@ def login_verification(user_name, password_input):
     if decoded_password.strip() == retrieved_password.strip():
         result = "Access Granted"
         print(result)
-        # Retrieves the role of the user from Database, role_types.txt
-        role = read_record(user_name)
         # Retrieves the role permissions and access right from Control Mechanism
         access_info = can_access(role.strip())
         print('The User ' + user_name + ' has access to following operations:')
-        operations = access_info.get("operations")
+        operations = access_info.get('operations')
         for (i) in operations:
             print(operations[i])
         return result
