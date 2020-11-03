@@ -11,8 +11,8 @@ import random
 
 def take_user_input():
     # Taking user name and password inputs from the User
-    username_input = input("Enter username: ")
-    password_input = input("Enter password: ")
+    #username_input = input("Enter username: ")
+    #password_input = input("Enter password: ")
 
     # username_input = "Tanvir"
     # password_input = 'ABCabc123!'
@@ -43,7 +43,7 @@ def check_user_password(username_input, password_input):
     while flag == -1:
         if len(password_input) < 8 or len(password_input) > 12:
             flag = -1
-            error = "Failed: Password is less than 8 characters"
+            error = "Failed: Password must be between 8-12 characters"
             print(error.strip())
             return False
             break
@@ -74,7 +74,50 @@ def check_user_password(username_input, password_input):
             print("Password must contain at least one special character among @$!#%?*")
             return False
             break
+        elif re.search("Password", password_input):
+            flag = -1
+            print("Password is too easy to guess. You can't have the word Password in your Password")
+            return False
+            break
 
+        elif re.search("password", password_input):
+            flag = -1
+            print("Password is too easy to guess. You can't have the word Password in your Password")
+            return False
+            break
+        elif re.search("Qwerty", password_input):
+            flag = -1
+            print("Password is too easy to guess. It can't be a commonly guessed.")
+            return False
+            break
+
+        elif re.search("Qaz123wsx", password_input):
+            flag = -1
+            print("Password is too easy to guess. You have characters in common sequence")
+            return False
+            break
+
+        elif re.search("123", password_input):
+            flag = -1
+            print("Password is too easy to guess. You have characters in common sequence")
+            return False
+            break
+        elif re.search("abc", password_input):
+            flag = -1
+            print("Password is too easy to guess. You have characters in common sequence")
+            return False
+            break
+        elif re.search("ABC", password_input):
+            flag = -1
+            print("Password is too easy to guess. You have characters in common sequence")
+            return False
+            break
+
+        elif re.search(username_input, password_input):
+            flag = -1
+            print("Password is too easy to guess. You have characters in common sequence")
+            return False
+            break
         else:
             flag = 0
             print("Password Accepted")
@@ -115,4 +158,4 @@ def verify_position(position_type):
         return False
 
 
-take_user_input()
+
