@@ -11,8 +11,8 @@ import random
 
 def take_user_input():
     # Taking user name and password inputs from the User
-    #username_input = input("Enter username: ")
-    #password_input = input("Enter password: ")
+    username_input = input("Enter username: ")
+    password_input = input("Enter password: ")
 
     # username_input = "Tanvir"
     # password_input = 'ABCabc123!'
@@ -34,7 +34,7 @@ def take_user_input():
 
     if flag_position & check_user_password(username_input, password_input):
         enrol_user(username_input, password_input, position_type)
-        print("Enrolment is successful")
+        print("Enrolment is successful\n")
 
 
 def check_user_password(username_input, password_input):
