@@ -11,8 +11,8 @@ import random
 
 def take_user_input():
     # Taking user name and password inputs from the User
-    uname_input = input("Enter username: ")
-    pword_input = input("Enter password: ")
+    username_input = input("Enter username: ")
+    password_input = input("Enter password: ")
 
     # username_input = "Tanvir"
     # password_input = 'ABCabc123!'
