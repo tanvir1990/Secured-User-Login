@@ -30,9 +30,10 @@ def login_verification(user_name, password_input):
         role = read_record(user_name)
         # Retrieves the role permissions and access right from Control Mechanism
         access_info = can_access(role.strip())
-        print(access_info)
         print('The User ' + user_name + ' has access to following operations:')
-        print(access_info.get("operations"))
+        operations = access_info.get("operations")
+        for (i) in operations:
+            print(operations[i])
         return result
     else:
         result = "Login Failed"
