@@ -1,17 +1,18 @@
-from Code.control_mechanism import *
-from Code.password_db import *
+# Tanvir Hossain
+# Id 101058988
+# SYSC 4810 Assignment 3
+#Problem 4
+
+from Code.access_control_mechanism import *
+from Code.password_control import *
 import hashlib
 import datetime
 
-#@TODO that Env thing
-#@TODO randomize salt
-
 def login_main():
 
-    #user_name = input("Enter username: ")
-    user_name = "Tanvir"
-    #password_input = input("Enter password: ")
-    password_input = "ABCabc123!"
+    user_name = input("Enter username: ")
+    password_input = input("Enter password: ")
+
     # Retrieves the role of the user from Database, role_types.txt
     role, env = read_record(user_name)
     login_verification(user_name.strip(), password_input.strip(), role, env)
@@ -34,7 +35,7 @@ def login_verification(user_name, password_input, role, env):
         result = "Access Granted"
         print(result)
         # Retrieves the role permissions and access right from Control Mechanism
-        access_info = can_access(role.strip())
+        access_info = getPositionInfo(role.strip())
         print('The User ' + user_name + ' has access to following operations:')
         operations = access_info.get('operations')
         for (i) in operations:
@@ -52,28 +53,8 @@ def password_is_valid(decoded_password, retrieved_password):
     else:
         return False
 
-def read_password(user_name):
-    password_file = open("password.txt")
-    # One for complete Info
-    user_list = {}
-    # One for Verification
-    user_array = []
 
-    for line in password_file:
-        record = line.split(' ')
-        user = record[0]
-        user_array.append(record[0])
-        password = record[1]
-        salt = record[2]
-        user_list.update({user: password})
-        if user == user_name:
-            break
-    password_file.close()
 
-    if user_name in user_array:
-        return user_list.get(user), salt  # Basically retrieves the hashed password for the given user
-    else:
-        warnings.warn("User name not Found")
 
 def check_system_time_and_access():
     now = datetime.datetime.now()
