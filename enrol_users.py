@@ -7,8 +7,11 @@ from contextlib import redirect_stdout
 
 
 def take_user_input():
-    uname_input = input("Enter username: ")
-    pword_input = input("Enter password: ")
+    #uname_input = input("Enter username: ")
+    #pword_input = input("Enter password: ")
+
+    uname_input = "Tanvir"
+    pword_input = 'ABCabc123!'
 
     # Taking user name and password
     flag = check_user_password(uname_input, pword_input)
@@ -19,7 +22,8 @@ def take_user_input():
         flag = check_user_password(uname_input, pword_input)
 
     # Taking Position Input
-    position_type = input("Enter Position: ")
+    #position_type = input("Enter Position: ")
+    position_type = "Employee_Teller"
     flag_position = verify_position(position_type)
     while flag_position == False:
         print("Please Try Again")
@@ -76,9 +80,7 @@ def check_user_password(uname_input, pword_input):
             break
 
 def enrol_user(uname_input, pword_input, position_type):
-    # @Todo store the user name and password into password.txt
-    # @TODO add the following into password_db.py, in the add_record function
-    users = {}
+    #users = {}
     salt = str(123456)
     hash_object = hashlib.sha256((pword_input + salt).encode())
     pswd = open("password.txt", "a")
@@ -86,8 +88,13 @@ def enrol_user(uname_input, pword_input, position_type):
     pswd.close()
 
     # Write username and position type in roles_types.txt
+    if position_type.strip() == "Employee_Teller":
+        env = str(1)
+    else:
+        env = str(0)
+
     role_database = open("role_types.txt", "a")
-    role_database.write(uname_input + ' ' + position_type + "\n")
+    role_database.write(uname_input + ' ' + position_type + ' ' + env + "\n")
     role_database.close()
 
 def verify_position(position_type):
