@@ -16,16 +16,19 @@ import json
 # print("Available Positions in the system are: ", available_positions)
 
 
-role = "Technical_Support"
+role = "Regular_Client"
 f = open('positions.json')
 data = json.load(f)
 value = {}
 def read_position():
     for (k) in data:
         if role == k.get('role_type'):
-            return k
+            return k.get('operations')
             break
 
 f.close()
 
-print(read_position())
+operations = (read_position())
+
+for (i) in operations:
+    print(operations[i])
