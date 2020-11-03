@@ -1,6 +1,6 @@
-Tanvir Employee_Teller 1
-Tanvir Employee_Teller 1
-Tanvir Employee_Teller 1
-Tanvir Employee_Teller 1
-Tanvir Employee_Teller 1
-Bob Regular_Client 0
+Tanvir Premium_Client 0
+John Regular_Client 0
+Bob Teller 0
+Tanvir Premium_Client 0
+John Regular_Client 0
+Bob Teller 0
