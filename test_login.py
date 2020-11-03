@@ -11,12 +11,12 @@ class TestCalc(unittest.TestCase):
     #     with redirect_stdout(text_trap):
     #         check_user_password('John', '123456')
     #     self.assertEqual(text_trap.getvalue(), "Failed: Password is less than 8 characters\n")
-    #
-    # def test_check_user_password_2(self):
-    #     text_trap = io.StringIO()
-    #     with redirect_stdout(text_trap):
-    #         check_user_password('JohnJohn', 'JohnJohn')
-    #     self.assertEqual(text_trap.getvalue(), "Failed: Password is Same as User Name\n")
+
+    def test_check_user_password_2(self):
+        text_trap = io.StringIO()
+        with redirect_stdout(text_trap):
+            check_user_password('JohnJohn', 'JohnJohn')
+        self.assertEqual(text_trap.getvalue(), "Failed: Password is Same as User Name\n")
 
     def test_login_verification_1(self):
         enrol_user("Tanvir", "abc123123!", "Premium_Client")
