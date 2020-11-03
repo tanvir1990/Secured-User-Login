@@ -22,7 +22,7 @@
      "role_type": "Employee_Regular",
      "operations":{
        "1": "View-Client's Account Balance",
-       "2": "View-Client's Investment Portfolio",
+       "2": "View-Client's Investment Portfolio"
      }
     },
     {

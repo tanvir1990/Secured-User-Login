@@ -1,7 +1,1 @@
-Tanvir Premium_Client
-John Premium_Client
-Mary Teller
-Mary Teller
-Bob Teller
-Rob Teller
-Ron Regular_Client
+Tanvir Employee_Teller 1
