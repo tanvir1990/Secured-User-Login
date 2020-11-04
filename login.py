@@ -54,8 +54,6 @@ def password_is_valid(decoded_password, retrieved_password):
         return False
 
 
-
-
 def check_system_time_and_access():
     now = datetime.datetime.now()
     print('Current Time is ', now)

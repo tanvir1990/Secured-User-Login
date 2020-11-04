@@ -23,12 +23,12 @@ def read_record(user_name):
         user_array.append(record[0])
         role_type = record[1]
         role_env = record[2]
-        user_list.update({user: role_type})
+        user_list.update({user: role_type.strip()})
         user_env.update({user: role_env.strip()})
     password_file.close()
 
     if user_name in user_array:
-        # Basically retrieves the roletype for the given user
+        # Basically retrieves the Role Type for the given user
         return user_list.get(user_name), user_env.get(user_name),
     else:
         warnings.warn("User name not Found")

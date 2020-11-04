@@ -11,6 +11,7 @@ import random
 
 def take_user_input():
     # Taking user name and password inputs from the User
+    print("First Name and Last name can only be separated by '_' ")
     username_input = input("Enter username: ")
     password_input = input("Enter password: ")
 
@@ -156,6 +157,7 @@ def verify_position(position_type):
         print("Position input is InValid")
         print("Available Positions are", available_positions)
         return False
+
 
 
 

@@ -1,16 +1,19 @@
 import unittest
 from Code.enrol import *
 from Code.login import *
+from Code.access_control_mechanism import *
+from Code.password_control import *
 import io
 from contextlib import redirect_stdout
+import warnings
 
 
 class TestCalc(unittest.TestCase):
-    # def test_check_user_password(self):
-    #     text_trap = io.StringIO()
-    #     with redirect_stdout(text_trap):
-    #         check_user_password('John', '123456')
-    #     self.assertEqual(text_trap.getvalue(), "Failed: Password is less than 8 characters\n")
+    def test_check_user_password(self):
+        text_trap = io.StringIO()
+        with redirect_stdout(text_trap):
+            check_user_password('John', '123456')
+        self.assertEqual(text_trap.getvalue(), "Failed: Password must be between 8-12 characters\n")
 
     def test_check_user_password_2(self):
         text_trap = io.StringIO()
@@ -22,6 +25,7 @@ class TestCalc(unittest.TestCase):
         enrol_user("Tanvir", "abc123123!", "Premium_Client")
         permission1 = login_verification("Tanvir", "abc123123!", "Regular_Client", 0)
         assert permission1 == "Access Granted"
+
 
     def test_login_verification_2(self):
         enrol_user("John", "123456", "Regular_Client")
@@ -50,6 +54,34 @@ class TestCalc(unittest.TestCase):
 
     def test_check_password(self):
         assert check_user_password('Ron', 'Ron!34AC') == False
+    #
+    def test_getPositionInfo(self):
+        result = {
+            "role_Id": "02",
+            "role_type": "Premium_Client",
+            "operations": {
+                "1": "View-Account Balance",
+                "2": "Modify-Investment Portfolio",
+                "3": "View-Contact Details of Financial Planner and Investment Analyst"
+            }
+        }
+        assert getPositionInfo("Premium_Client") == result
+
+    def test_password_file(self):
+        user_name = "Mischa_Lowery"
+        position = "Regular_Client"
+        add_record(user_name.strip(), position.strip(), '0')
+        returned_uname, returned_env = read_record(user_name)
+        self.assertEqual(position, returned_uname, 'Check User Name in the Record')
+
+    def test_enrol_user(self):
+        user_name = "Willow_Garza"
+        position = "Teller"
+        add_record(user_name.strip(), position.strip(), '0')
+        returned_uname, returned_env = read_record(user_name)
+        self.assertEqual(position, returned_uname, 'Check User Name in the Record')
+
 
 if __name__ == '__main__':
     unittest.main()
+
