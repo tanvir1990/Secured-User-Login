@@ -15,9 +15,6 @@ def take_user_input():
     username_input = input("Enter username: ")
     password_input = input("Enter password: ")
 
-    # username_input = "Tanvir"
-    # password_input = 'ABCabc123!'
-
     while not check_user_password(username_input, password_input):
         print("Enrolment was not successful. Please try again")
         username_input = input("\nEnter username: ")
@@ -128,7 +125,7 @@ def check_user_password(username_input, password_input):
 
 def enrol_user(username_input, password_input, position_type):
 
-    salt = random.randint(1000, 1000000)
+    salt = random.randint(100000, 1000000000)
     hash_object = hashlib.sha256((password_input + str(salt)).encode())
     password = open("password.txt", "a")
     password.write(username_input + ' ' + (hash_object.hexdigest()) + ' ' + str(salt) + "\n")

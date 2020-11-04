@@ -5,19 +5,22 @@
 import warnings
 
 
+# When a user enrols to the system, add_record() function will be called.
+# It will take the username, role, and environment variable as input.
+# This essentially implements the ABAC policy
 def add_record(username_input, position_type, env):
     role_database = open("role_types.txt", "a")
     role_database.write(username_input + ' ' + position_type + ' ' + env + "\n")
     role_database.close()
 
 
-# Reads Record from a "Database" called role_types.txt
-def read_record(user_name):
-    password_file = open("role_types.txt")
+# Reads roles from a "Database" called role_types.txt
+def read_role(user_name):
+    role_file = open("role_types.txt")
     user_list = {}             # One for complete Info
     user_env = {}
     user_array = []            # One for Verification
-    for line in password_file:
+    for line in role_file:
         record = line.split(' ')
         user = record[0]
         user_array.append(record[0])
@@ -25,7 +28,7 @@ def read_record(user_name):
         role_env = record[2]
         user_list.update({user: role_type.strip()})
         user_env.update({user: role_env.strip()})
-    password_file.close()
+    role_file.close()
 
     if user_name in user_array:
         # Basically retrieves the Role Type for the given user
@@ -34,6 +37,7 @@ def read_record(user_name):
         warnings.warn("User name not Found")
 
 
+# Takes in the user name and returns the password for that user
 def read_password(user_name):
     password_file = open("password.txt")
     # One for complete Info

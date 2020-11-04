@@ -54,8 +54,9 @@ class TestCalc(unittest.TestCase):
 
     def test_check_password(self):
         assert check_user_password('Ron', 'Ron!34AC') == False
-    #
-    def test_getPositionInfo(self):
+
+    def test_can_access_role_operations(self):
+
         result = {
             "role_Id": "02",
             "role_type": "Premium_Client",
@@ -65,20 +66,20 @@ class TestCalc(unittest.TestCase):
                 "3": "View-Contact Details of Financial Planner and Investment Analyst"
             }
         }
-        assert getPositionInfo("Premium_Client") == result
+        assert can_access_roles_operations("Premium_Client") == result
 
     def test_password_file(self):
         user_name = "Mischa_Lowery"
         position = "Regular_Client"
         add_record(user_name.strip(), position.strip(), '0')
-        returned_uname, returned_env = read_record(user_name)
+        returned_uname, returned_env = read_role(user_name)
         self.assertEqual(position, returned_uname, 'Check User Name in the Record')
 
     def test_enrol_user(self):
         user_name = "Willow_Garza"
         position = "Teller"
         add_record(user_name.strip(), position.strip(), '0')
-        returned_uname, returned_env = read_record(user_name)
+        returned_uname, returned_env = read_role(user_name)
         self.assertEqual(position, returned_uname, 'Check User Name in the Record')
 
 

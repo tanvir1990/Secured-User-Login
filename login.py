@@ -14,7 +14,7 @@ def login_main():
     password_input = input("Enter password: ")
 
     # Retrieves the role of the user from Database, role_types.txt
-    role, env = read_record(user_name)
+    role, env = read_role(user_name)
     login_verification(user_name.strip(), password_input.strip(), role, env)
     return 0
 
@@ -35,7 +35,7 @@ def login_verification(user_name, password_input, role, env):
         result = "Access Granted"
         print(result)
         # Retrieves the role permissions and access right from Control Mechanism
-        access_info = getPositionInfo(role.strip())
+        access_info = can_access_roles_operations(role.strip())
         print('The User ' + user_name + ' has access to following operations:')
         operations = access_info.get('operations')
         for (i) in operations:
